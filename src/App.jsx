@@ -1,5 +1,11 @@
+import CurriculumVitae from "./components/CurriculumVitae";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <CurriculumVitae />
+    </>
+  );
 }
 
 export default App;
