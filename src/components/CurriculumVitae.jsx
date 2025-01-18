@@ -11,7 +11,7 @@ function CurriculumVitae() {
 
   return (
     <>
-      <Personal personal={personal} updatePersonal={setPersonal} />
+      <Personal personal={personal} setPersonal={setPersonal} />
       {/* <div>
         <p>{personal.name}</p>
         <p>{personal.email}</p>

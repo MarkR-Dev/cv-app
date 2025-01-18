@@ -2,25 +2,23 @@
 todo:
   bonus- svg of person?
   bonus- dropdown?
-
-  correct way to handle the change?
 */
 
-function Personal({ personal, updatePersonal }) {
+function Personal({ personal, setPersonal }) {
   function handleNameChange(e) {
-    updatePersonal({ ...personal, name: e.target.value });
+    setPersonal({ ...personal, name: e.target.value });
   }
 
   function handleEmailChange(e) {
-    updatePersonal({ ...personal, email: e.target.value });
+    setPersonal({ ...personal, email: e.target.value });
   }
 
   function handlePhoneChange(e) {
-    updatePersonal({ ...personal, phone: e.target.value });
+    setPersonal({ ...personal, phone: e.target.value });
   }
 
   function handleGithubChange(e) {
-    updatePersonal({ ...personal, github: e.target.value });
+    setPersonal({ ...personal, github: e.target.value });
   }
 
   return (
