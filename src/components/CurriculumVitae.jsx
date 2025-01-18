@@ -1,4 +1,5 @@
 import Personal from "./Personal";
+import Education from "./Education";
 import { useState } from "react";
 
 function CurriculumVitae() {
@@ -11,7 +12,10 @@ function CurriculumVitae() {
 
   return (
     <>
-      <Personal personal={personal} setPersonal={setPersonal} />
+      {/* <Personal personal={personal} setPersonal={setPersonal} /> */}
+
+      <Education />
+
       {/* <div>
         <p>{personal.name}</p>
         <p>{personal.email}</p>
