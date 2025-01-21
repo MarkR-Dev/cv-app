@@ -2,6 +2,7 @@
 todo:
   bonus- svg of school?
   bonus- dropdown?
+  disable enter submit form
 */
 import { useState } from "react";
 
@@ -23,6 +24,15 @@ function Education({ education, setEducation }) {
     setSelectedId(newId);
   }
 
+  function handleEditEntry(e) {
+    setStatus("typing");
+    setSelectedId(e.target.parentNode.dataset.id);
+  }
+
+  function handleRemoveEntry(e) {
+    // todo:
+  }
+
   function handleNameChange(e) {
     const newArr = education.map((edu) => {
       if (edu.id === selectedId) {
@@ -41,11 +51,11 @@ function Education({ education, setEducation }) {
         <div>
           {education.map((edu) => {
             return (
-              //use idx?
-              <div key={edu.name}>
+              //is there another way to target the specific item to edit?
+              <div key={edu.id} data-id={edu.id}>
                 <h3>{edu.name}</h3>
-                <button>Edit</button>
-                <button>Remove</button>
+                <button onClick={handleEditEntry}>Edit</button>
+                <button onClick={handleRemoveEntry}>Remove</button>
               </div>
             );
           })}
@@ -55,11 +65,11 @@ function Education({ education, setEducation }) {
 
       {status === "typing" && (
         <form action="#" id="education">
-          <label htmlFor="school-name">
+          <label htmlFor="edu-name">
             School/University Name:
             <input
-              id="school-name"
-              name="school-name"
+              id="edu-name"
+              name="edu-name"
               type="text"
               value={selectedEdu.name}
               onChange={handleNameChange}

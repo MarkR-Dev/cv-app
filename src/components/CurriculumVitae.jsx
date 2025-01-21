@@ -11,6 +11,14 @@ function CurriculumVitae() {
       {/* <Personal personal={personal} setPersonal={setPersonal} /> */}
 
       <Education education={education} setEducation={setEducation} />
+
+      {education.map((edu, idx) => {
+        return (
+          <div key={idx}>
+            <h3>{edu.name}</h3>
+          </div>
+        );
+      })}
     </>
   );
 }
