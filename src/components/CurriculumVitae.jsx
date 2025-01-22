@@ -16,6 +16,10 @@ function CurriculumVitae() {
         return (
           <div key={idx}>
             <h3>{edu.name}</h3>
+            <h3>{edu.qual}</h3>
+            <h3>{edu.start}</h3>
+            <h3>{edu.end}</h3>
+            <h3>{edu.location}</h3>
           </div>
         );
       })}

@@ -3,6 +3,7 @@ todo:
   bonus- svg of school?
   bonus- dropdown?
   disable enter submit form
+  refactor: combine all handleXChange functions into one?
 */
 import { useState } from "react";
 
@@ -15,8 +16,12 @@ function Education({ education, setEducation }) {
   function handleAddEntry() {
     const newId = crypto.randomUUID();
     const newEntry = {
-      name: "",
       id: newId,
+      name: "",
+      qual: "",
+      start: "",
+      end: "",
+      location: "",
     };
     setStatus("typing");
     setEducation([...education, newEntry]);
@@ -49,7 +54,51 @@ function Education({ education, setEducation }) {
     setEducation(newArr);
   }
 
-  //remove later
+  function handleQualChange(e) {
+    const newArr = education.map((edu) => {
+      if (edu.id === selectedId) {
+        edu.qual = e.target.value;
+      }
+      return edu;
+    });
+
+    setEducation(newArr);
+  }
+
+  function handleStartChange(e) {
+    const newArr = education.map((edu) => {
+      if (edu.id === selectedId) {
+        edu.start = e.target.value;
+      }
+      return edu;
+    });
+
+    setEducation(newArr);
+  }
+
+  function handleEndChange(e) {
+    const newArr = education.map((edu) => {
+      if (edu.id === selectedId) {
+        edu.end = e.target.value;
+      }
+      return edu;
+    });
+
+    setEducation(newArr);
+  }
+
+  function handleLocationChange(e) {
+    const newArr = education.map((edu) => {
+      if (edu.id === selectedId) {
+        edu.location = e.target.value;
+      }
+      return edu;
+    });
+
+    setEducation(newArr);
+  }
+
+  //remove later - check that removing all items resets the selectedID via setSelectedId
   function toggle() {
     if (status === "typing") {
       setStatus("display");
@@ -90,6 +139,50 @@ function Education({ education, setEducation }) {
               type="text"
               value={selectedEdu.name}
               onChange={handleNameChange}
+            />
+          </label>
+
+          <label htmlFor="edu-qual">
+            Qualification:
+            <input
+              id="edu-qual"
+              name="edu-qual"
+              type="text"
+              value={selectedEdu.qual}
+              onChange={handleQualChange}
+            />
+          </label>
+
+          <label htmlFor="edu-start">
+            Start Date:
+            <input
+              id="edu-start"
+              name="edu-start"
+              type="text"
+              value={selectedEdu.start}
+              onChange={handleStartChange}
+            />
+          </label>
+
+          <label htmlFor="edu-end">
+            End Date:
+            <input
+              id="edu-end"
+              name="edu-end"
+              type="text"
+              value={selectedEdu.end}
+              onChange={handleEndChange}
+            />
+          </label>
+
+          <label htmlFor="edu-location">
+            Location:
+            <input
+              id="edu-location"
+              name="edu-location"
+              type="text"
+              value={selectedEdu.location}
+              onChange={handleLocationChange}
             />
           </label>
         </form>
