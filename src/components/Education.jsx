@@ -3,6 +3,7 @@ todo:
   bonus- svg of school?
   bonus- dropdown?
   disable enter submit form
+  refactor to uuid?
 */
 import { useState } from "react";
 
@@ -12,7 +13,6 @@ function Education({ education, setEducation }) {
 
   const selectedEdu = education[selectedId];
 
-  // will have to alter id when removing?
   function handleAddEntry() {
     const newId = education.length;
     const newEntry = {
@@ -26,11 +26,23 @@ function Education({ education, setEducation }) {
 
   function handleEditEntry(e) {
     setStatus("typing");
-    setSelectedId(e.target.parentNode.dataset.id);
+    setSelectedId(+e.target.parentNode.dataset.id);
   }
 
+  // is this correct?
   function handleRemoveEntry(e) {
-    // todo:
+    const entryToRemove = +e.target.parentNode.dataset.id;
+
+    const filteredArr = education.filter((edu) => {
+      return edu.id !== entryToRemove;
+    });
+
+    const mapped = filteredArr.map((edu, idx) => {
+      edu.id = idx;
+      return edu;
+    });
+
+    setEducation(mapped);
   }
 
   function handleNameChange(e) {
@@ -43,8 +55,19 @@ function Education({ education, setEducation }) {
     setEducation(newArr);
   }
 
+  //remove later
+  function toggle() {
+    if (status === "typing") {
+      setStatus("display");
+    } else if (status === "display") {
+      setStatus("typing");
+    }
+  }
+
   return (
     <>
+      {/*remove later */}
+      <button onClick={toggle}>toggle</button>
       <h2>Education</h2>
 
       {status === "display" && (
