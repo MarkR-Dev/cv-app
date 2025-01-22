@@ -3,7 +3,6 @@ todo:
   bonus- svg of school?
   bonus- dropdown?
   disable enter submit form
-  refactor to uuid?
 */
 import { useState } from "react";
 
@@ -11,10 +10,10 @@ function Education({ education, setEducation }) {
   const [status, setStatus] = useState("display");
   const [selectedId, setSelectedId] = useState(null);
 
-  const selectedEdu = education[selectedId];
+  const selectedEdu = education.find((edu) => edu.id === selectedId);
 
   function handleAddEntry() {
-    const newId = education.length;
+    const newId = crypto.randomUUID();
     const newEntry = {
       name: "",
       id: newId,
@@ -26,23 +25,17 @@ function Education({ education, setEducation }) {
 
   function handleEditEntry(e) {
     setStatus("typing");
-    setSelectedId(+e.target.parentNode.dataset.id);
+    setSelectedId(e.target.parentNode.dataset.id);
   }
 
-  // is this correct?
   function handleRemoveEntry(e) {
-    const entryToRemove = +e.target.parentNode.dataset.id;
+    const entryToRemove = e.target.parentNode.dataset.id;
 
     const filteredArr = education.filter((edu) => {
       return edu.id !== entryToRemove;
     });
 
-    const mapped = filteredArr.map((edu, idx) => {
-      edu.id = idx;
-      return edu;
-    });
-
-    setEducation(mapped);
+    setEducation(filteredArr);
   }
 
   function handleNameChange(e) {
@@ -52,6 +45,7 @@ function Education({ education, setEducation }) {
       }
       return edu;
     });
+
     setEducation(newArr);
   }
 
