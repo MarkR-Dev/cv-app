@@ -15,11 +15,11 @@ function CurriculumVitae() {
       {education.map((edu, idx) => {
         return (
           <div key={idx}>
-            <h3>{edu.name}</h3>
-            <h3>{edu.qual}</h3>
-            <h3>{edu.start}</h3>
-            <h3>{edu.end}</h3>
-            <h3>{edu.location}</h3>
+            <h3>{edu.eduName}</h3>
+            <h3>{edu.eduQual}</h3>
+            <h3>{edu.eduStart}</h3>
+            <h3>{edu.eduEnd}</h3>
+            <h3>{edu.eduLocation}</h3>
           </div>
         );
       })}

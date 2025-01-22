@@ -3,7 +3,6 @@ todo:
   bonus- svg of school?
   bonus- dropdown?
   disable enter submit form
-  refactor: combine all handleXChange functions into one?
 */
 import { useState } from "react";
 
@@ -17,11 +16,11 @@ function Education({ education, setEducation }) {
     const newId = crypto.randomUUID();
     const newEntry = {
       id: newId,
-      name: "",
-      qual: "",
-      start: "",
-      end: "",
-      location: "",
+      eduName: "",
+      eduQual: "",
+      eduStart: "",
+      eduEnd: "",
+      eduLocation: "",
     };
     setStatus("typing");
     setEducation([...education, newEntry]);
@@ -43,54 +42,11 @@ function Education({ education, setEducation }) {
     setEducation(filteredArr);
   }
 
-  function handleNameChange(e) {
+  // Combined controlled input handler
+  function handleInputChange(e) {
     const newArr = education.map((edu) => {
       if (edu.id === selectedId) {
-        edu.name = e.target.value;
-      }
-      return edu;
-    });
-
-    setEducation(newArr);
-  }
-
-  function handleQualChange(e) {
-    const newArr = education.map((edu) => {
-      if (edu.id === selectedId) {
-        edu.qual = e.target.value;
-      }
-      return edu;
-    });
-
-    setEducation(newArr);
-  }
-
-  function handleStartChange(e) {
-    const newArr = education.map((edu) => {
-      if (edu.id === selectedId) {
-        edu.start = e.target.value;
-      }
-      return edu;
-    });
-
-    setEducation(newArr);
-  }
-
-  function handleEndChange(e) {
-    const newArr = education.map((edu) => {
-      if (edu.id === selectedId) {
-        edu.end = e.target.value;
-      }
-      return edu;
-    });
-
-    setEducation(newArr);
-  }
-
-  function handleLocationChange(e) {
-    const newArr = education.map((edu) => {
-      if (edu.id === selectedId) {
-        edu.location = e.target.value;
+        edu[e.target.id] = e.target.value;
       }
       return edu;
     });
@@ -119,7 +75,7 @@ function Education({ education, setEducation }) {
             return (
               //is there another way to target the specific item to edit?
               <div key={edu.id} data-id={edu.id}>
-                <h3>{edu.name}</h3>
+                <h3>{edu.eduName}</h3>
                 <button onClick={handleEditEntry}>Edit</button>
                 <button onClick={handleRemoveEntry}>Remove</button>
               </div>
@@ -131,58 +87,58 @@ function Education({ education, setEducation }) {
 
       {status === "typing" && (
         <form action="#" id="education">
-          <label htmlFor="edu-name">
+          <label htmlFor="eduName">
             School/University Name:
             <input
-              id="edu-name"
-              name="edu-name"
+              id="eduName"
+              name="eduName"
               type="text"
-              value={selectedEdu.name}
-              onChange={handleNameChange}
+              value={selectedEdu.eduName}
+              onChange={handleInputChange}
             />
           </label>
 
-          <label htmlFor="edu-qual">
+          <label htmlFor="eduQual">
             Qualification:
             <input
-              id="edu-qual"
-              name="edu-qual"
+              id="eduQual"
+              name="eduQual"
               type="text"
-              value={selectedEdu.qual}
-              onChange={handleQualChange}
+              value={selectedEdu.eduQual}
+              onChange={handleInputChange}
             />
           </label>
 
-          <label htmlFor="edu-start">
+          <label htmlFor="eduStart">
             Start Date:
             <input
-              id="edu-start"
-              name="edu-start"
+              id="eduStart"
+              name="eduStart"
               type="text"
-              value={selectedEdu.start}
-              onChange={handleStartChange}
+              value={selectedEdu.eduStart}
+              onChange={handleInputChange}
             />
           </label>
 
-          <label htmlFor="edu-end">
+          <label htmlFor="eduEnd">
             End Date:
             <input
-              id="edu-end"
-              name="edu-end"
+              id="eduEnd"
+              name="eduEnd"
               type="text"
-              value={selectedEdu.end}
-              onChange={handleEndChange}
+              value={selectedEdu.eduEnd}
+              onChange={handleInputChange}
             />
           </label>
 
-          <label htmlFor="edu-location">
+          <label htmlFor="eduLocation">
             Location:
             <input
-              id="edu-location"
-              name="edu-location"
+              id="eduLocation"
+              name="eduLocation"
               type="text"
-              value={selectedEdu.location}
-              onChange={handleLocationChange}
+              value={selectedEdu.eduLocation}
+              onChange={handleInputChange}
             />
           </label>
         </form>

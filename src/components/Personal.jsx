@@ -2,6 +2,7 @@
 todo:
   bonus- svg of person?
   bonus- dropdown?
+  disable enter submit form
 */
 
 function Personal({ personal, setPersonal }) {
