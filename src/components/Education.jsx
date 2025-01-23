@@ -2,8 +2,8 @@
 todo:
   bonus- svg of school?
   bonus- dropdown?
-  disable enter submit form
 */
+
 import { useState } from "react";
 
 function Education({ education, setEducation }) {
@@ -23,8 +23,8 @@ function Education({ education, setEducation }) {
       eduLocation: "",
     };
     setStatus("typing");
-    setEducation([...education, newEntry]);
     setSelectedId(newId);
+    setEducation([...education, newEntry]);
   }
 
   function handleEditEntry(e) {
@@ -54,26 +54,30 @@ function Education({ education, setEducation }) {
     setEducation(newArr);
   }
 
-  //remove later - check that removing all items resets the selectedID via setSelectedId
-  function toggle() {
-    if (status === "typing") {
-      setStatus("display");
-    } else if (status === "display") {
-      setStatus("typing");
-    }
+  function handleSaveForm(e) {
+    e.preventDefault();
+    setStatus("display");
+    setSelectedId(null);
+  }
+
+  function handleRemoveSelected(e) {
+    e.preventDefault();
+    const filteredArr = education.filter((edu) => {
+      return edu.id !== selectedId;
+    });
+    setStatus("display");
+    setSelectedId(null);
+    setEducation(filteredArr);
   }
 
   return (
     <>
-      {/*remove later */}
-      <button onClick={toggle}>toggle</button>
       <h2>Education</h2>
 
       {status === "display" && (
         <div>
           {education.map((edu) => {
             return (
-              //is there another way to target the specific item to edit?
               <div key={edu.id} data-id={edu.id}>
                 <h3>{edu.eduName}</h3>
                 <button onClick={handleEditEntry}>Edit</button>
@@ -86,7 +90,7 @@ function Education({ education, setEducation }) {
       )}
 
       {status === "typing" && (
-        <form action="#" id="education">
+        <form action="#" id="education" onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="eduName">
             School/University Name:
             <input
@@ -141,6 +145,9 @@ function Education({ education, setEducation }) {
               onChange={handleInputChange}
             />
           </label>
+
+          <button onClick={handleSaveForm}>Save</button>
+          <button onClick={handleRemoveSelected}>Remove</button>
         </form>
       )}
     </>
