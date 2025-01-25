@@ -70,27 +70,41 @@ function Education({ education, setEducation }) {
     setEducation(filteredArr);
   }
 
+  function EducationEntry({ entry }) {
+    return (
+      <>
+        <li data-id={entry.id}>
+          <h3>{entry.eduName}</h3>
+          <button type="button" onClick={handleEditEntry}>
+            Edit
+          </button>
+          <button type="button" onClick={handleRemoveEntry}>
+            Remove
+          </button>
+        </li>
+      </>
+    );
+  }
+
   return (
     <>
       <h2>Education</h2>
 
       {status === "display" && (
-        <div>
-          {education.map((edu) => {
-            return (
-              <div key={edu.id} data-id={edu.id}>
-                <h3>{edu.eduName}</h3>
-                <button onClick={handleEditEntry}>Edit</button>
-                <button onClick={handleRemoveEntry}>Remove</button>
-              </div>
-            );
-          })}
-          <button onClick={handleAddEntry}>Add</button>
-        </div>
+        <section>
+          <ul>
+            {education.map((edu) => (
+              <EducationEntry key={edu.id} entry={edu} />
+            ))}
+          </ul>
+          <button type="button" onClick={handleAddEntry}>
+            Add
+          </button>
+        </section>
       )}
 
       {status === "typing" && (
-        <form action="#" id="education" onSubmit={(e) => e.preventDefault()}>
+        <form action="#" id="education">
           <label htmlFor="eduName">
             School/University Name:
             <input
@@ -146,8 +160,12 @@ function Education({ education, setEducation }) {
             />
           </label>
 
-          <button onClick={handleSaveForm}>Save</button>
-          <button onClick={handleRemoveSelected}>Remove</button>
+          <button type="button" onClick={handleSaveForm}>
+            Save
+          </button>
+          <button type="button" onClick={handleRemoveSelected}>
+            Remove
+          </button>
         </form>
       )}
     </>
