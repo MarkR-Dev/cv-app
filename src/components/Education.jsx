@@ -6,8 +6,7 @@ todo:
 
 import { useState } from "react";
 
-function Education({ education, setEducation }) {
-  const [status, setStatus] = useState("display");
+function Education({ education, setEducation, eduStatus, setEduStatus }) {
   const [selectedId, setSelectedId] = useState(null);
 
   const selectedEdu = education.find((edu) => edu.id === selectedId);
@@ -22,13 +21,13 @@ function Education({ education, setEducation }) {
       eduEnd: "",
       eduLocation: "",
     };
-    setStatus("typing");
+    setEduStatus("typing");
     setSelectedId(newId);
     setEducation([...education, newEntry]);
   }
 
   function handleEditEntry(e) {
-    setStatus("typing");
+    setEduStatus("typing");
     setSelectedId(e.target.parentNode.dataset.id);
   }
 
@@ -56,7 +55,7 @@ function Education({ education, setEducation }) {
 
   function handleSaveForm(e) {
     e.preventDefault();
-    setStatus("display");
+    setEduStatus("display");
     setSelectedId(null);
   }
 
@@ -65,7 +64,7 @@ function Education({ education, setEducation }) {
     const filteredArr = education.filter((edu) => {
       return edu.id !== selectedId;
     });
-    setStatus("display");
+    setEduStatus("display");
     setSelectedId(null);
     setEducation(filteredArr);
   }
@@ -90,7 +89,7 @@ function Education({ education, setEducation }) {
     <>
       <h2>Education</h2>
 
-      {status === "display" && (
+      {eduStatus === "display" && (
         <section>
           <ul>
             {education.map((edu) => (
@@ -103,7 +102,7 @@ function Education({ education, setEducation }) {
         </section>
       )}
 
-      {status === "typing" && (
+      {eduStatus === "typing" && (
         <form action="#" id="education">
           <label htmlFor="eduName">
             School/University Name:

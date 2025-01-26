@@ -4,12 +4,16 @@ import Personal from "./Personal";
 import Education from "./Education";
 
 function CurriculumVitae() {
-  const [personal, setPersonal] = useState({});
+  const [personal, setPersonal] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    github: "",
+  });
   const [education, setEducation] = useState([]);
+  const [eduStatus, setEduStatus] = useState("display");
 
   // TODO:
-  // controls - create a custom data object that will generate a pre-filled in cv - does this belong in controls component?
-  // controls - lift the selectedEduId state to here and pass it into the controls component as a prop to change it to null later??
   // display - add a display component
   // experience - add experience component
   // css? - dropdowns and svgs
@@ -17,11 +21,20 @@ function CurriculumVitae() {
 
   return (
     <>
-      <Controls />
+      <Controls
+        setPersonal={setPersonal}
+        setEducation={setEducation}
+        setEduStatus={setEduStatus}
+      />
 
-      {/* <Personal personal={personal} setPersonal={setPersonal} /> */}
+      <Personal personal={personal} setPersonal={setPersonal} />
 
-      <Education education={education} setEducation={setEducation} />
+      <Education
+        education={education}
+        setEducation={setEducation}
+        eduStatus={eduStatus}
+        setEduStatus={setEduStatus}
+      />
 
       {education.map((edu, idx) => {
         return (
