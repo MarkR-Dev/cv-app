@@ -2,6 +2,7 @@ import { useState } from "react";
 import Controls from "./Controls";
 import Personal from "./Personal";
 import Education from "./Education";
+import Display from "./Display";
 
 function CurriculumVitae() {
   const [personal, setPersonal] = useState({
@@ -15,6 +16,7 @@ function CurriculumVitae() {
 
   // TODO:
   // display - add a display component
+  // tidy up components into useful html containers ready for styling and layout
   // experience - add experience component
   // css? - dropdowns and svgs
   // css - add general layout and styling
@@ -36,17 +38,7 @@ function CurriculumVitae() {
         setEduStatus={setEduStatus}
       />
 
-      {education.map((edu, idx) => {
-        return (
-          <div key={idx}>
-            <h3>{edu.eduName}</h3>
-            <h3>{edu.eduQual}</h3>
-            <h3>{edu.eduStart}</h3>
-            <h3>{edu.eduEnd}</h3>
-            <h3>{edu.eduLocation}</h3>
-          </div>
-        );
-      })}
+      <Display personal={personal} education={education} />
     </>
   );
 }
