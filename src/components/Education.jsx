@@ -28,11 +28,11 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
 
   function handleEditEntry(e) {
     setEduStatus("typing");
-    setSelectedId(e.target.parentNode.dataset.id);
+    setSelectedId(e.target.closest("[data-id").dataset.id);
   }
 
   function handleRemoveEntry(e) {
-    const entryToRemove = e.target.parentNode.dataset.id;
+    const entryToRemove = e.target.closest("[data-id").dataset.id;
 
     const filteredArr = education.filter((edu) => {
       return edu.id !== entryToRemove;
@@ -74,12 +74,14 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
       <>
         <li data-id={entry.id}>
           <h3>{entry.eduName}</h3>
-          <button type="button" onClick={handleEditEntry}>
-            Edit
-          </button>
-          <button type="button" onClick={handleRemoveEntry}>
-            Remove
-          </button>
+          <div>
+            <button type="button" onClick={handleEditEntry}>
+              Edit
+            </button>
+            <button type="button" onClick={handleRemoveEntry}>
+              Remove
+            </button>
+          </div>
         </li>
       </>
     );
@@ -159,12 +161,14 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
             />
           </label>
 
-          <button type="button" onClick={handleSaveForm}>
-            Save
-          </button>
-          <button type="button" onClick={handleRemoveSelected}>
-            Remove
-          </button>
+          <div>
+            <button type="button" onClick={handleSaveForm}>
+              Save
+            </button>
+            <button type="button" onClick={handleRemoveSelected}>
+              Remove
+            </button>
+          </div>
         </form>
       )}
     </>

@@ -44,12 +44,14 @@ function Controls({ setPersonal, setEducation, setEduStatus }) {
 
   return (
     <>
-      <button type="button" onClick={handleLoadExample}>
-        Example
-      </button>
-      <button type="button" onClick={handleClearData}>
-        Clear
-      </button>
+      <div>
+        <button type="button" onClick={handleLoadExample}>
+          Example
+        </button>
+        <button type="button" onClick={handleClearData}>
+          Clear
+        </button>
+      </div>
     </>
   );
 }

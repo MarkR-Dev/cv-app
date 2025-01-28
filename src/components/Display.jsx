@@ -1,3 +1,7 @@
+/* 
+  todo: svgs?
+*/
+
 function Display({ personal, education }) {
   function PersonalDisplay() {
     return (
@@ -17,7 +21,28 @@ function Display({ personal, education }) {
   function EducationDisplay() {
     return (
       <>
-        <div></div>
+        <div>
+          {education.length > 0 ? <h2>Education</h2> : null}
+
+          {education.map((edu) => {
+            return (
+              <div key={edu.id}>
+                <div>
+                  <h3>
+                    {edu.eduStart} {edu.eduStart && edu.eduEnd ? "- " : null}{" "}
+                    {edu.eduEnd}
+                  </h3>
+                  <h3>{edu.eduLocation}</h3>
+                </div>
+
+                <div>
+                  <h3>{edu.eduName}</h3>
+                  <h3>{edu.eduQual}</h3>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </>
     );
   }
@@ -32,16 +57,3 @@ function Display({ personal, education }) {
 }
 
 export default Display;
-/*
-{education.map((edu, idx) => {
-  return (
-    <div key={idx}>
-      <h3>{edu.eduName}</h3>
-      <h3>{edu.eduQual}</h3>
-      <h3>{edu.eduStart}</h3>
-      <h3>{edu.eduEnd}</h3>
-      <h3>{edu.eduLocation}</h3>
-    </div>
-  );
-})}
-*/
