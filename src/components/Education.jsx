@@ -89,10 +89,9 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
 
   return (
     <>
-      <h2>Education</h2>
-
       {eduStatus === "display" && (
-        <section>
+        <div>
+          <h2>Education</h2>
           <ul>
             {education.map((edu) => (
               <EducationEntry key={edu.id} entry={edu} />
@@ -101,11 +100,12 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
           <button type="button" onClick={handleAddEntry}>
             Add
           </button>
-        </section>
+        </div>
       )}
 
       {eduStatus === "typing" && (
         <form action="#" id="education">
+          <h2>Education</h2>
           <label htmlFor="eduName">
             School/University Name:
             <input

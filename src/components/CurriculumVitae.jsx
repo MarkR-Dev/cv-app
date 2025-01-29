@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/curriculumVitae.css";
 import Controls from "./Controls";
 import Personal from "./Personal";
 import Education from "./Education";
@@ -15,29 +16,32 @@ function CurriculumVitae() {
   const [eduStatus, setEduStatus] = useState("display");
 
   // TODO:
-  // (might need to put a container around personal and education)
   // css - add general layout and styling
   // css - dropdowns and svgs
   // experience - add experience component
 
   return (
     <>
-      <Controls
-        setPersonal={setPersonal}
-        setEducation={setEducation}
-        setEduStatus={setEduStatus}
-      />
+      <main>
+        <section className="form-controls-container">
+          <Controls
+            setPersonal={setPersonal}
+            setEducation={setEducation}
+            setEduStatus={setEduStatus}
+          />
 
-      <Personal personal={personal} setPersonal={setPersonal} />
+          <Personal personal={personal} setPersonal={setPersonal} />
 
-      <Education
-        education={education}
-        setEducation={setEducation}
-        eduStatus={eduStatus}
-        setEduStatus={setEduStatus}
-      />
+          <Education
+            education={education}
+            setEducation={setEducation}
+            eduStatus={eduStatus}
+            setEduStatus={setEduStatus}
+          />
+        </section>
 
-      <Display personal={personal} education={education} />
+        <Display personal={personal} education={education} />
+      </main>
     </>
   );
 }

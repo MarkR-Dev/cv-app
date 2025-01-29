@@ -23,9 +23,8 @@ function Personal({ personal, setPersonal }) {
 
   return (
     <>
-      <h2>Personal Details</h2>
-
       <form action="#" id="personal">
+        <h2>Personal Details</h2>
         <label htmlFor="name">
           Full Name:
           <input

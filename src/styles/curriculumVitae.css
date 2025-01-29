@@ -1,0 +1,12 @@
+main {
+  border: 1px solid green;
+}
+
+.form-controls-container {
+  border: 1px solid black;
+  width: 80%;
+}
+
+.form-controls-container > * {
+  border: 1px solid red;
+}

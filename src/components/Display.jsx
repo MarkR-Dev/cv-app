@@ -2,6 +2,8 @@
   todo: svgs?
 */
 
+import "../styles/display.css";
+
 function Display({ personal, education }) {
   function PersonalDisplay() {
     return (
@@ -48,7 +50,7 @@ function Display({ personal, education }) {
   }
   return (
     <>
-      <section>
+      <section className="display-container">
         <PersonalDisplay />
         <EducationDisplay />
       </section>
