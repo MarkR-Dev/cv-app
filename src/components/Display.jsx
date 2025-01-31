@@ -1,19 +1,33 @@
-/* 
-  todo: svgs?
-*/
-
 import "../styles/display.css";
+import githubIcon from "../assets/github.svg";
+import phoneIcon from "../assets/phone.svg";
+import emailIcon from "../assets/email.svg";
 
 function Display({ personal, education }) {
   function PersonalDisplay() {
     return (
       <>
-        <div>
-          <h2>{personal.name}</h2>
-          <div>
-            <h3>{personal.email}</h3>
-            <h3>{personal.phone}</h3>
-            <h3>{personal.github}</h3>
+        <div className="personal-display-container">
+          <h2 className="personal-name">{personal.name}</h2>
+          <div className="personal-info">
+            <div className="info">
+              {personal.email && (
+                <img src={emailIcon} alt="Email Icon" className="icon" />
+              )}
+              <h3>{personal.email}</h3>
+            </div>
+            <div className="info">
+              {personal.phone && (
+                <img src={phoneIcon} alt="Phone Icon" className="icon" />
+              )}
+              <h3>{personal.phone}</h3>
+            </div>
+            <div className="info">
+              {personal.github && (
+                <img src={githubIcon} alt="GitHub Logo" className="icon" />
+              )}
+              <h3>{personal.github}</h3>
+            </div>
           </div>
         </div>
       </>

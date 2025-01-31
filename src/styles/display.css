@@ -1,8 +1,36 @@
 .display-container {
   border: 1px solid red;
-  width: 80%;
+  background-color: white;
+  width: 100%;
+  font-family: monospace;
 }
 
-.display-container > * {
-  border: 1px solid black;
+.personal-display-container {
+  background-color: var(--color-1);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.personal-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-block-end: 20px;
+}
+
+.personal-info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.1rem;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  width: 1.5rem;
 }

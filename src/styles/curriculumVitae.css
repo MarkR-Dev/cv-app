@@ -1,10 +1,33 @@
+:root {
+  --color-1: #323031;
+  --color-2: #3d3b3c;
+  --color-3: #7f7979;
+  --color-4: #c1bdb3;
+  --color-5: #5f5b6b;
+}
+
+html {
+  background-color: var(--color-4);
+}
+
 main {
   border: 1px solid green;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  gap: 100px;
+
+  margin-block-start: 50px;
 }
 
 .form-controls-container {
   border: 1px solid black;
-  width: 80%;
+  background-color: blue;
+
+  width: 40%;
+  min-width: 300px;
 }
 
 .form-controls-container > * {
