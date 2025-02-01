@@ -10,24 +10,24 @@ function Display({ personal, education }) {
         <div className="personal-display-container">
           <h2 className="personal-name">{personal.name}</h2>
           <div className="personal-info">
-            <div className="info">
-              {personal.email && (
+            {personal.email && (
+              <div className="info">
                 <img src={emailIcon} alt="Email Icon" className="icon" />
-              )}
-              <h3>{personal.email}</h3>
-            </div>
-            <div className="info">
-              {personal.phone && (
+                <h3>{personal.email}</h3>
+              </div>
+            )}
+            {personal.phone && (
+              <div className="info">
                 <img src={phoneIcon} alt="Phone Icon" className="icon" />
-              )}
-              <h3>{personal.phone}</h3>
-            </div>
-            <div className="info">
-              {personal.github && (
-                <img src={githubIcon} alt="GitHub Logo" className="icon" />
-              )}
-              <h3>{personal.github}</h3>
-            </div>
+                <h3>{personal.phone}</h3>
+              </div>
+            )}
+            {personal.github && (
+              <div className="info">
+                <img src={githubIcon} alt="Github Logo" className="icon" />
+                <h3>{personal.github}</h3>
+              </div>
+            )}
           </div>
         </div>
       </>
@@ -37,23 +37,25 @@ function Display({ personal, education }) {
   function EducationDisplay() {
     return (
       <>
-        <div>
-          {education.length > 0 ? <h2>Education</h2> : null}
+        <div className="education-display-container">
+          {education.length > 0 ? (
+            <h2 className="education-heading">Education</h2>
+          ) : null}
 
           {education.map((edu) => {
             return (
-              <div key={edu.id}>
-                <div>
-                  <h3>
+              <div key={edu.id} className="education-entry">
+                <div className="left-info">
+                  <h3 className="entry-date">
                     {edu.eduStart} {edu.eduStart && edu.eduEnd ? "- " : null}{" "}
                     {edu.eduEnd}
                   </h3>
-                  <h3>{edu.eduLocation}</h3>
+                  <h3 className="entry-location">{edu.eduLocation}</h3>
                 </div>
 
-                <div>
-                  <h3>{edu.eduName}</h3>
-                  <h3>{edu.eduQual}</h3>
+                <div className="right-info">
+                  <h3 className="entry-name">{edu.eduName}</h3>
+                  <h3 className="entry-qual">{edu.eduQual}</h3>
                 </div>
               </div>
             );

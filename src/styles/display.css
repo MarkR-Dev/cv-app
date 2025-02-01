@@ -3,6 +3,7 @@
   background-color: white;
   width: 100%;
   font-family: monospace;
+  min-height: 700px;
 }
 
 .personal-display-container {
@@ -33,4 +34,41 @@
 
 .icon {
   width: 1.5rem;
+}
+
+.education-display-container {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.education-heading {
+  background-color: var(--color-1);
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.education-entry {
+  margin-top: 15px;
+  display: flex;
+  gap: 30px;
+  font-size: 1rem;
+  color: var(--color-1);
+}
+
+.left-info,
+.right-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.entry-date,
+.entry-name {
+  font-weight: bold;
+}
+
+.left-info {
+  width: 30%;
 }

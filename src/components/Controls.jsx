@@ -1,3 +1,5 @@
+import "../styles/controls.css";
+
 function Controls({ setPersonal, setEducation, setEduStatus }) {
   const examplePersonal = {
     name: "John Doe",
@@ -44,11 +46,15 @@ function Controls({ setPersonal, setEducation, setEduStatus }) {
 
   return (
     <>
-      <div>
-        <button type="button" onClick={handleLoadExample}>
+      <div className="controls-container">
+        <button
+          type="button"
+          onClick={handleLoadExample}
+          className="example-btn"
+        >
           Example
         </button>
-        <button type="button" onClick={handleClearData}>
+        <button type="button" onClick={handleClearData} className="clear-btn">
           Clear
         </button>
       </div>
