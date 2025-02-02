@@ -4,6 +4,9 @@ todo:
   bonus- dropdown?
 */
 
+import "../styles/personal.css";
+import personalIcon from "../assets/personal.svg";
+
 function Personal({ personal, setPersonal }) {
   function handleNameChange(e) {
     setPersonal({ ...personal, name: e.target.value });
@@ -24,50 +27,56 @@ function Personal({ personal, setPersonal }) {
   return (
     <>
       <form action="#" id="personal">
-        <h2>Personal Details</h2>
-        <label htmlFor="name">
-          Full Name:
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={personal.name}
-            onChange={handleNameChange}
-          />
-        </label>
+        <div className="personal-heading">
+          <img src={personalIcon} alt="Person Icon" className="icon" />
+          <h2>Personal Details</h2>
+        </div>
 
-        <label htmlFor="email">
-          Email:
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={personal.email}
-            onChange={handleEmailChange}
-          />
-        </label>
+        <div className="personal-form-controls">
+          <div className="personal-input">
+            <label htmlFor="name">Full Name:</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={personal.name}
+              onChange={handleNameChange}
+            />
+          </div>
 
-        <label htmlFor="phone">
-          Phone:
-          <input
-            id="phone"
-            name="phone"
-            type="phone"
-            value={personal.phone}
-            onChange={handlePhoneChange}
-          />
-        </label>
+          <div className="personal-input">
+            <label htmlFor="name">Email:</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={personal.email}
+              onChange={handleEmailChange}
+            />
+          </div>
 
-        <label htmlFor="github">
-          Github:
-          <input
-            id="github"
-            name="github"
-            type="text"
-            value={personal.github}
-            onChange={handleGithubChange}
-          />
-        </label>
+          <div className="personal-input">
+            <label htmlFor="name">Phone:</label>
+            <input
+              id="phone"
+              name="phone"
+              type="phone"
+              value={personal.phone}
+              onChange={handlePhoneChange}
+            />
+          </div>
+
+          <div className="personal-input">
+            <label htmlFor="name">Github:</label>
+            <input
+              id="github"
+              name="github"
+              type="text"
+              value={personal.github}
+              onChange={handleGithubChange}
+            />
+          </div>
+        </div>
       </form>
     </>
   );

@@ -24,9 +24,11 @@ main {
 
 .form-controls-container {
   border: 1px solid black;
-  background-color: blue;
   width: 40%;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .form-controls-container > * {

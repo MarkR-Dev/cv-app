@@ -1,0 +1,53 @@
+#personal {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--color-1);
+  font-family: monospace;
+  color: var(--color-1);
+}
+
+.personal-heading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#personal .icon {
+  width: 2.2rem;
+}
+
+#personal h2 {
+  font-size: 1.25rem;
+}
+
+.personal-form-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-block: 10px;
+}
+
+.personal-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.personal-input label {
+  font-size: 1rem;
+}
+
+.personal-input input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--color-1);
+  font-weight: 600;
+}
+
+.personal-input input:focus {
+  outline-color: lightskyblue;
+}

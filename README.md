@@ -6,4 +6,5 @@ Possible improvements/notes to take forward:
 - Put jsx elements into their own separate components e.g. controlled inputs
 - Research if there is a better way to handle linking bewteen data and DOM nodes in react
 - Research into how CSS and files are structured in a React project
-- Brush back up on CSS and design
+- Brush back up on CSS and design skills - E.g. better organisation of css files (typography/layout)
+- Better accessibility features - E.g. color contrast of input focus
