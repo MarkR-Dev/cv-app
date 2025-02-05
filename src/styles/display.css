@@ -3,7 +3,8 @@
   background-color: white;
   width: 100%;
   font-family: monospace;
-  min-height: 700px;
+  min-height: 800px;
+  height: 900px;
 }
 
 .personal-display-container {
@@ -41,7 +42,7 @@
   margin: 10px auto;
 }
 
-.education-heading {
+.education-display-heading {
   background-color: var(--color-1);
   padding: 10px;
   text-align: center;

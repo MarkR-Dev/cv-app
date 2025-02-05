@@ -1,9 +1,3 @@
-/* 
-todo:
-  bonus- svg of person?
-  bonus- dropdown?
-*/
-
 import "../styles/personal.css";
 import personalIcon from "../assets/personal.svg";
 
@@ -29,7 +23,7 @@ function Personal({ personal, setPersonal }) {
       <form action="#" id="personal">
         <div className="personal-heading">
           <img src={personalIcon} alt="Person Icon" className="icon" />
-          <h2>Personal Details</h2>
+          <h2>Personal</h2>
         </div>
 
         <div className="personal-form-controls">

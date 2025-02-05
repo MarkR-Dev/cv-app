@@ -15,17 +15,15 @@ main {
   width: 80%;
   max-width: 1200px;
   margin: 0 auto;
-
   display: flex;
   gap: 100px;
-
   margin-block-start: 50px;
 }
 
 .form-controls-container {
   border: 1px solid black;
-  width: 40%;
-  min-width: 300px;
+  width: 45%;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 20px;

@@ -14,7 +14,7 @@ function Controls({ setPersonal, setEducation, setEduStatus }) {
     eduQual: "Example Degree",
     eduStart: "26-01-25",
     eduEnd: "Ongoing",
-    eduLocation: "Space",
+    eduLocation: "London",
   };
   const exampleEduTwo = {
     id: crypto.randomUUID(),
@@ -22,7 +22,7 @@ function Controls({ setPersonal, setEducation, setEduStatus }) {
     eduQual: "Example Qualifications",
     eduStart: "26-01-25",
     eduEnd: "Ongoing",
-    eduLocation: "Space",
+    eduLocation: "London",
   };
 
   const exampleEducation = [exampleEduOne, exampleEduTwo];

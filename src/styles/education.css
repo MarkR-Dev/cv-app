@@ -1,0 +1,141 @@
+.education-form-container {
+  background-color: white;
+  color: var(--color-1);
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--color-1);
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.education-form-heading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.education-form-heading .icon {
+  width: 2.2rem;
+}
+
+.education-form-heading h2 {
+  font-size: 1.25rem;
+}
+
+.education-form-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edu-entry-heading {
+  font-size: 1rem;
+  word-break: break-all;
+}
+
+.edu-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-block-end: 20px;
+}
+
+.edu-entry-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edu-entry-edit-btn,
+.edu-entry-remove-btn {
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background-color: var(--color-1);
+  letter-spacing: 0.15rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edu-entry-edit-btn {
+  color: white;
+}
+
+.edu-entry-remove-btn {
+  color: #ff7575;
+}
+
+.edu-add-btn {
+  display: block;
+  margin: 10px auto;
+
+  font-size: 1.1rem;
+  background-color: var(--color-1);
+  color: white;
+  border-color: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.15rem;
+  line-height: 1rem;
+}
+
+#education {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-block: 10px;
+}
+
+.education-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.education-input label {
+  font-size: 1rem;
+}
+
+.education-input input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--color-1);
+  font-weight: 600;
+}
+
+.education-input input:focus {
+  outline-color: lightskyblue;
+}
+
+.edu-form-buttons {
+  margin-block-start: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.edu-form-buttons button {
+  padding: 10px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: var(--color-1);
+  cursor: pointer;
+  min-width: min-content;
+}
+
+.edu-save-button {
+  color: lightgreen;
+}
+
+.edu-cancel-button {
+  color: #ff7575;
+}

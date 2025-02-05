@@ -15,11 +15,6 @@ function CurriculumVitae() {
   const [education, setEducation] = useState([]);
   const [eduStatus, setEduStatus] = useState("display");
 
-  // TODO:
-  // css - add general layout and styling
-  // css - dropdowns and svgs
-  // experience - add experience component
-
   return (
     <>
       <main>

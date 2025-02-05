@@ -39,7 +39,7 @@ function Display({ personal, education }) {
       <>
         <div className="education-display-container">
           {education.length > 0 ? (
-            <h2 className="education-heading">Education</h2>
+            <h2 className="education-display-heading">Education</h2>
           ) : null}
 
           {education.map((edu) => {

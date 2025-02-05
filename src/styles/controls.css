@@ -20,6 +20,7 @@
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.15rem;
+  cursor: pointer;
 }
 
 .clear-btn {
