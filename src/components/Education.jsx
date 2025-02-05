@@ -1,9 +1,3 @@
-/* 
-todo:
-  bonus- svg of school?
-  bonus- dropdown?
-*/
-
 import { useState } from "react";
 import "../styles/education.css";
 import schoolIcon from "../assets/school.svg";

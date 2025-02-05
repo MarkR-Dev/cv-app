@@ -3,6 +3,7 @@ import "../styles/curriculumVitae.css";
 import Controls from "./Controls";
 import Personal from "./Personal";
 import Education from "./Education";
+import Experience from "./Experience";
 import Display from "./Display";
 
 function CurriculumVitae() {
@@ -15,6 +16,9 @@ function CurriculumVitae() {
   const [education, setEducation] = useState([]);
   const [eduStatus, setEduStatus] = useState("display");
 
+  const [experience, setExperience] = useState([]);
+  const [expStatus, setExpStatus] = useState("display");
+
   return (
     <>
       <main>
@@ -23,6 +27,8 @@ function CurriculumVitae() {
             setPersonal={setPersonal}
             setEducation={setEducation}
             setEduStatus={setEduStatus}
+            setExperience={setExperience}
+            setExpStatus={setExpStatus}
           />
 
           <Personal personal={personal} setPersonal={setPersonal} />
@@ -33,9 +39,20 @@ function CurriculumVitae() {
             eduStatus={eduStatus}
             setEduStatus={setEduStatus}
           />
+
+          <Experience
+            experience={experience}
+            setExperience={setExperience}
+            expStatus={expStatus}
+            setExpStatus={setExpStatus}
+          />
         </section>
 
-        <Display personal={personal} education={education} />
+        <Display
+          personal={personal}
+          education={education}
+          experience={experience}
+        />
       </main>
     </>
   );

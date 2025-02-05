@@ -1,6 +1,12 @@
 import "../styles/controls.css";
 
-function Controls({ setPersonal, setEducation, setEduStatus }) {
+function Controls({
+  setPersonal,
+  setEducation,
+  setEduStatus,
+  setExperience,
+  setExpStatus,
+}) {
   const examplePersonal = {
     name: "John Doe",
     email: "johndoe@example.com",
@@ -27,10 +33,32 @@ function Controls({ setPersonal, setEducation, setEduStatus }) {
 
   const exampleEducation = [exampleEduOne, exampleEduTwo];
 
+  const exampleExpOne = {
+    id: crypto.randomUUID(),
+    expCompany: "Example Company 1",
+    expPosition: "Example Position 1",
+    expStart: "26-01-25",
+    expEnd: "Ongoing",
+    expDesc: "A description of the job role",
+  };
+
+  const exampleExpTwo = {
+    id: crypto.randomUUID(),
+    expCompany: "Example Company 2",
+    expPosition: "Example Position 2",
+    expStart: "26-01-25",
+    expEnd: "Ongoing",
+    expDesc: "A description of the job role",
+  };
+
+  const exampleExperience = [exampleExpOne, exampleExpTwo];
+
   function handleLoadExample() {
     setPersonal(examplePersonal);
     setEducation(exampleEducation);
     setEduStatus("display");
+    setExperience(exampleExperience);
+    setExpStatus("display");
   }
 
   function handleClearData() {
@@ -42,6 +70,8 @@ function Controls({ setPersonal, setEducation, setEduStatus }) {
     });
     setEducation([]);
     setEduStatus("display");
+    setExperience([]);
+    setExpStatus("display");
   }
 
   return (

@@ -3,7 +3,7 @@ import githubIcon from "../assets/github.svg";
 import phoneIcon from "../assets/phone.svg";
 import emailIcon from "../assets/email.svg";
 
-function Display({ personal, education }) {
+function Display({ personal, education, experience }) {
   function PersonalDisplay() {
     return (
       <>
