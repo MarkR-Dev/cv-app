@@ -55,14 +55,27 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
     setSelectedId(null);
   }
 
-  function handleRemoveSelected(e) {
+  function handleCancelForm(e) {
     e.preventDefault();
-    const filteredArr = education.filter((edu) => {
-      return edu.id !== selectedId;
-    });
+
+    let isEmptyEntry = true;
+
+    for (const [key, value] of Object.entries(selectedEdu)) {
+      if (key !== "id" && value !== "") {
+        isEmptyEntry = false;
+        break;
+      }
+    }
+
+    if (isEmptyEntry) {
+      const filteredArr = education.filter((edu) => {
+        return edu.id !== selectedId;
+      });
+      setEducation(filteredArr);
+    }
+
     setEduStatus("display");
     setSelectedId(null);
-    setEducation(filteredArr);
   }
 
   function EducationEntry({ entry }) {
@@ -152,7 +165,7 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
             </div>
 
             <div className="education-input">
-              <label htmlFor="eduStart">End Date:</label>
+              <label htmlFor="eduEnd">End Date:</label>
               <input
                 id="eduEnd"
                 name="eduEnd"
@@ -163,7 +176,7 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
             </div>
 
             <div className="education-input">
-              <label htmlFor="eduStart">Location:</label>
+              <label htmlFor="eduLocation">Location:</label>
               <input
                 id="eduLocation"
                 name="eduLocation"
@@ -183,7 +196,7 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
               </button>
               <button
                 type="button"
-                onClick={handleRemoveSelected}
+                onClick={handleCancelForm}
                 className="edu-cancel-button"
               >
                 Cancel

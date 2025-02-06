@@ -1,10 +1,12 @@
 .display-container {
-  border: 1px solid red;
   background-color: white;
   width: 100%;
   font-family: monospace;
   min-height: 800px;
   height: 900px;
+  box-shadow: 0px 0px 3px 0px rgba(50, 48, 49, 0.75);
+  position: sticky;
+  top: 50px;
 }
 
 .personal-display-container {
