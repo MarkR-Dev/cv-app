@@ -37,12 +37,14 @@
   width: 1.5rem;
 }
 
-.education-display-container {
+.education-display-container,
+.exp-display-container {
   width: 90%;
   margin: 10px auto;
 }
 
-.education-display-heading {
+.education-display-heading,
+.exp-display-heading {
   background-color: var(--color-1);
   padding: 10px;
   text-align: center;
@@ -50,7 +52,8 @@
   font-size: 1.1rem;
 }
 
-.education-entry {
+.education-entry,
+.exp-entry {
   margin-top: 15px;
   display: flex;
   gap: 30px;
@@ -66,10 +69,25 @@
 }
 
 .entry-date,
-.entry-name {
+.entry-name,
+.exp-company {
   font-weight: bold;
 }
 
 .left-info {
   width: 30%;
+}
+
+.exp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.exp-position {
+  font-style: italic;
+}
+
+.exp-desc {
+  font-size: 0.9rem;
 }

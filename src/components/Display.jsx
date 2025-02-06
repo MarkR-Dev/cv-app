@@ -64,11 +64,45 @@ function Display({ personal, education, experience }) {
       </>
     );
   }
+
+  function ExperienceDisplay() {
+    return (
+      <>
+        <div className="exp-display-container">
+          {experience.length > 0 ? (
+            <h2 className="exp-display-heading">Experience</h2>
+          ) : null}
+
+          {experience.map((exp) => {
+            return (
+              <div key={exp.id} className="exp-entry">
+                <div className="left-info">
+                  <h3 className="entry-date">
+                    {exp.expStart} {exp.expStart && exp.expEnd ? "- " : null}{" "}
+                    {exp.expEnd}
+                  </h3>
+                </div>
+
+                <div className="right-info">
+                  <div className="exp-info">
+                    <h3 className="exp-company">{exp.expCompany}</h3>
+                    <h3 className="exp-position">{exp.expPosition}</h3>
+                  </div>
+                  <h3 className="exp-desc">{exp.expDesc}</h3>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <section className="display-container">
         <PersonalDisplay />
         <EducationDisplay />
+        <ExperienceDisplay />
       </section>
     </>
   );
