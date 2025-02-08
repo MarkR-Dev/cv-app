@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "../styles/education.css";
 import schoolIcon from "../assets/school.svg";
+import arrowIcon from "../assets/arrow.svg";
 
 function Education({ education, setEducation, eduStatus, setEduStatus }) {
   const [selectedId, setSelectedId] = useState(null);
+  const [isActive, setIsActive] = useState(false);
 
   const selectedEdu = education.find((edu) => edu.id === selectedId);
 
@@ -104,15 +106,24 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
     );
   }
 
+  function handleActiveToggle() {
+    setIsActive(!isActive);
+  }
+
   return (
     <>
       <div className="education-form-container">
-        <div className="education-form-heading">
+        <div className="education-form-heading" onClick={handleActiveToggle}>
           <img src={schoolIcon} alt="School Icon" className="icon" />
           <h2>Education</h2>
+          <img
+            src={arrowIcon}
+            alt="Chevron Icon"
+            className={"arrow" + (isActive ? " arrow-active" : "")}
+          />
         </div>
 
-        {eduStatus === "display" && (
+        {eduStatus === "display" && isActive && (
           <div className="education-entry-list">
             <ul className="edu-entries">
               {education.map((edu) => (
@@ -129,7 +140,7 @@ function Education({ education, setEducation, eduStatus, setEduStatus }) {
           </div>
         )}
 
-        {eduStatus === "typing" && (
+        {eduStatus === "typing" && isActive && (
           <form action="#" id="education">
             <div className="education-input">
               <label htmlFor="eduName">School/University Name:</label>

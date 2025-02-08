@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "../styles/experience.css";
 import jobIcon from "../assets/job.svg";
+import arrowIcon from "../assets/arrow.svg";
 
 function Experience({ experience, setExperience, expStatus, setExpStatus }) {
   const [selectedId, setSelectedId] = useState(null);
+  const [isActive, setIsActive] = useState(false);
 
   const selectedExp = experience.find((exp) => exp.id === selectedId);
 
@@ -104,15 +106,24 @@ function Experience({ experience, setExperience, expStatus, setExpStatus }) {
     );
   }
 
+  function handleActiveToggle() {
+    setIsActive(!isActive);
+  }
+
   return (
     <>
       <div className="exp-form-container">
-        <div className="exp-form-heading">
+        <div className="exp-form-heading" onClick={handleActiveToggle}>
           <img src={jobIcon} alt="Briefcase Icon" className="icon" />
           <h2>Experience</h2>
+          <img
+            src={arrowIcon}
+            alt="Chevron Icon"
+            className={"arrow" + (isActive ? " arrow-active" : "")}
+          />
         </div>
 
-        {expStatus === "display" && (
+        {expStatus === "display" && isActive && (
           <div className="exp-entry-list">
             <ul className="exp-entries">
               {experience.map((exp) => (
@@ -129,7 +140,7 @@ function Experience({ experience, setExperience, expStatus, setExpStatus }) {
           </div>
         )}
 
-        {expStatus === "typing" && (
+        {expStatus === "typing" && isActive && (
           <form action="#" id="experience">
             <div className="exp-input">
               <label htmlFor="expCompany">Company Name:</label>

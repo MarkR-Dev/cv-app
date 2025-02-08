@@ -1,7 +1,11 @@
 import "../styles/personal.css";
 import personalIcon from "../assets/personal.svg";
+import arrowIcon from "../assets/arrow.svg";
+import { useState } from "react";
 
 function Personal({ personal, setPersonal }) {
+  const [isActive, setIsActive] = useState(false);
+
   function handleNameChange(e) {
     setPersonal({ ...personal, name: e.target.value });
   }
@@ -18,15 +22,24 @@ function Personal({ personal, setPersonal }) {
     setPersonal({ ...personal, github: e.target.value });
   }
 
+  function handleActiveToggle() {
+    setIsActive(!isActive);
+  }
+
   return (
     <>
       <form action="#" id="personal">
-        <div className="personal-heading">
+        <div className="personal-heading" onClick={handleActiveToggle}>
           <img src={personalIcon} alt="Person Icon" className="icon" />
           <h2>Personal</h2>
+          <img
+            src={arrowIcon}
+            alt="Chevron Icon"
+            className={"arrow" + (isActive ? " arrow-active" : "")}
+          />
         </div>
 
-        <div className="personal-form-controls">
+        <div className={"personal-form-controls" + (isActive ? " active" : "")}>
           <div className="personal-input">
             <label htmlFor="name">Full Name:</label>
             <input

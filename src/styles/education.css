@@ -14,6 +14,7 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
 }
 
 .education-form-heading .icon {
@@ -22,6 +23,16 @@
 
 .education-form-heading h2 {
   font-size: 1.25rem;
+}
+
+.arrow {
+  width: 2rem;
+  margin-left: auto;
+  transition: transform 400ms;
+}
+
+.arrow-active {
+  transform: rotateX(180deg);
 }
 
 .education-form-entry {

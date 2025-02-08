@@ -11,6 +11,7 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
 }
 
 #personal .icon {
@@ -21,7 +22,21 @@
   font-size: 1.25rem;
 }
 
+.arrow {
+  width: 2rem;
+  margin-left: auto;
+  transition: transform 400ms;
+}
+
+.arrow-active {
+  transform: rotateX(180deg);
+}
+
 .personal-form-controls {
+  display: none;
+}
+
+.active {
   display: flex;
   flex-direction: column;
   gap: 15px;
