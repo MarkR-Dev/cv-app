@@ -21,5 +21,6 @@ Possible improvements/notes to take forward:
 - Research if there is a better way to handle linking bewteen data and DOM nodes in react
 - Research into how CSS and files are structured in a React project
 - Brush back up on CSS and design skills - E.g. better organisation of css files (typography/layout)
+- Fix various CSS overflow and layout issues
 - Better css naming to prevent overlap between display and forms
 - Research the best practices for repeated CSS in multiple components

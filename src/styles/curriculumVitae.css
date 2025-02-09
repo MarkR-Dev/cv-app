@@ -26,3 +26,14 @@ main {
   flex-direction: column;
   gap: 20px;
 }
+
+@media screen and (width < 1200px) {
+  main {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .form-controls-container {
+    margin: 0 auto;
+  }
+}
